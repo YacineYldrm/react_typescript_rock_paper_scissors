@@ -1,0 +1,49 @@
+.round_settings_wrapper {
+    border: 1px solid white;
+    border-radius: 16px;
+    padding: 12px 24px;
+    width: 600px;
+
+    .round_settings {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(30px, 1fr));
+    }
+}
+
+.score_display_wrapper {
+    border: 1px solid white;
+    border-radius: 16px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 32px;
+
+    .players {
+        height: 100px;
+    }
+
+    div:nth-of-type(2) {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+}
+
+.pointer_restart {
+    animation-name: pointer;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+
+}
+
+@keyframes pointer {
+    from {
+        transform: translateY(-8px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
