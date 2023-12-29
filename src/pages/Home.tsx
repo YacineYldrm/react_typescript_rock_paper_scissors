@@ -66,7 +66,7 @@ const Home = () => {
     }, [roundsPlayed]);
 
     // game logic
-    const handleRound = (event: any ) => {
+    const handleRound = (event: React.MouseEvent<HTMLButtonElement>) => {
 
         setRoundsOutput(rounds);
         setRandomNum(Math.ceil(Math.random() * 3));
@@ -76,11 +76,11 @@ const Home = () => {
             {
                 setRoundsPlayed(roundsPlayed + 1);       
                 getComputerMove(randomNum);
-                setPlayerMove(event.target.textContent);  
+                setPlayerMove(event.currentTarget.textContent || "");  
             } else if (rounds - roundsPlayed === 1) {
                 setRoundsPlayed(roundsPlayed + 1);
                 getComputerMove(randomNum);
-                setPlayerMove(event.target.textContent);
+                setPlayerMove(event.currentTarget.textContent || "");
                 setGameOver(true);
             }
         } else if (!gameOver){
@@ -113,19 +113,19 @@ const Home = () => {
                     <>
                     <article className="round_settings">
                         <div>
-                            <input onClick={(event: any) => setRounds(event.target.value)} type="radio" value={5} name="round"/>
+                            <input onClick={(event: React.MouseEvent<HTMLInputElement>) => setRounds(Number(event.currentTarget.value))} type="radio" value={5} name="round"/>
                             <label htmlFor="">5</label>
                         </div>
                         <div>
-                            <input onClick={(event: any) => setRounds(event.target.value)} type="radio" value={10} name="round"/>
+                            <input onClick={(event: React.MouseEvent<HTMLInputElement>) => setRounds(Number(event.currentTarget.value))} type="radio" value={10} name="round"/>
                             <label htmlFor="">10</label>
                         </div>
                         <div>
-                            <input onClick={(event: any) => setRounds(event.target.value)} type="radio" value={15} name="round"/>
+                            <input onClick={(event: React.MouseEvent<HTMLInputElement>) => setRounds(Number(event.currentTarget.value))} type="radio" value={15} name="round"/>
                             <label htmlFor="">15</label>
                         </div>
                         <div>
-                            <input onClick={(event: any) => setRounds(event.target.value)} type="radio" value={20} name="round"/>
+                            <input onClick={(event: React.MouseEvent<HTMLInputElement>) => setRounds(Number(event.currentTarget.value))} type="radio" value={20} name="round"/>
                             <label htmlFor="">20</label>
                         </div>
                     </article>
